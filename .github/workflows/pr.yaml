@@ -27,7 +27,11 @@ jobs:
         id: junit-display-all
         run: |
           echo "stdout<<EOF" >> $GITHUB_OUTPUT
-          echo $(~/go/bin/junit-reporter --path build/ --group --ticks --median) >> $GITHUB_OUTPUT
+          OUTPUT=$(~/go/bin/junit-reporter --path build/ --group --ticks --median)
+          OUTPUT="${OUTPUT//'%'/'%25'}"
+          OUTPUT="${OUTPUT//$'\n'/'%0A'}"
+          OUTPUT="${OUTPUT//$'\r'/'%0D'}"
+          echo $OUTPUT >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Display major junit
