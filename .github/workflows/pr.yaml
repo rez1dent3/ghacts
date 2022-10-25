@@ -34,7 +34,7 @@ jobs:
         id: junit-display-major
         run: |
           echo "stdout<<EOF" >> $GITHUB_OUTPUT
-          echo $(~/go/bin/junit-reporter --path build/ --group --major --ticks --median) >> $GITHUB_OUTPUT
+          echo "$(~/go/bin/junit-reporter --path build/ --group --major --ticks --median)" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Find Comment
