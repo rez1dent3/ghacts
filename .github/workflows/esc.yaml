@@ -24,4 +24,4 @@ jobs:
       - name: Test
         id: result
         run: |
-          echo "${{ '\${{ steps.message.outputs.stdout }}' }}"
+          echo "${{ sanitize steps.message.outputs.stdout }}"
