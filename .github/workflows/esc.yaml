@@ -23,5 +23,7 @@ jobs:
 
       - name: Test
         id: result
+        with:
+          INPUT: ${{ steps.message.outputs.stdout }}
         run: |
-          echo "${{ steps.message.outputs.stdout }}"
+          echo "$INPUT"
