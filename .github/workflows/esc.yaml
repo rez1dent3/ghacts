@@ -18,10 +18,10 @@ jobs:
         id: message
         run: |
           echo "stdout<<EOF" >> $GITHUB_OUTPUT
-          echo "hello \"world\"" >> $GITHUB_OUTPUT
+          echo "printf "hello %s" \"world\"" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Test
         id: result
         run: |
-          echo $"\"${{ steps.message.outputs.stdout }}"
+          echo "${{ steps.message.outputs.stdout }}"
