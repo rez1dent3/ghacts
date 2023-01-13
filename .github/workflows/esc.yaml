@@ -24,4 +24,4 @@ jobs:
       - name: Test
         id: result
         run: |
-          echo "${{shellQuote ${{ steps.message.outputs.stdout }} }}"
+          echo "${{ steps.message.outputs.stdout@Q }}"
