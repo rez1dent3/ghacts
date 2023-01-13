@@ -17,7 +17,9 @@ jobs:
       - name: Test message
         id: message
         run: |
-          echo "hello \"world\""
+          echo "stdout<<EOF" >> $GITHUB_OUTPUT
+          echo "hello \"world\"" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Test
         id: result
