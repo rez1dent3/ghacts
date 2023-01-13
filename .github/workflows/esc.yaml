@@ -1,0 +1,25 @@
+name: escaping
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    if: ${{ github.event.pull_request != null }}
+    name: Display results
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: git-checkout
+        uses: actions/checkout@v3
+
+      - name: Test message
+        id: message
+        run: |
+          echo "hello \"world\""
+
+      - name: Test
+        id: result
+        run: |
+          echo "${{ steps.message.outputs.stdout }}"
